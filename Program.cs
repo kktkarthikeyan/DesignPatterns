@@ -1,4 +1,5 @@
-﻿using com.karthik.observer.factorymethod.FactoryCreator.VehicleFactory;
+﻿using com.karthik.observer.decoratorpattern;
+using com.karthik.observer.factorymethod.FactoryCreator.VehicleFactory;
 using com.karthik.observer.factorymethod.product;
 using com.karthik.observer.weatherforcast.displaysubscriber;
 using com.karthik.observer.weatherforcast.weatherstation;
@@ -24,6 +25,15 @@ namespace com.karthik.observer
             VehicleFactory vehicleFactory = new CreateVehicle();
             IProduct product = vehicleFactory.CreateFactoryVehicle("bike");
             product.Vehicle();
+
+            /*Decorator Pattern*/
+            Burger burger;
+            burger = new ZingerBurger();
+            Console.WriteLine($"{burger.Getescription()} cost is {burger.GetCost()}");
+
+            burger = new ExtraCheeseBurger(burger);
+            Console.WriteLine($"{burger.Getescription()} cost is {burger.GetCost()}");
+
         }
 
     }
