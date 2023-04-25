@@ -1,4 +1,6 @@
-﻿using com.karthik.observer.weatherforcast.displaysubscriber;
+﻿using com.karthik.observer.factorymethod.FactoryCreator.VehicleFactory;
+using com.karthik.observer.factorymethod.product;
+using com.karthik.observer.weatherforcast.displaysubscriber;
 using com.karthik.observer.weatherforcast.weatherstation;
 
 namespace com.karthik.observer
@@ -13,9 +15,16 @@ namespace com.karthik.observer
             
             weatherStation.paramChange(20,10);
 
-            Thread.Sleep(50000);
+            Thread.Sleep(10);
 
             weatherStation.paramChange(30,40);
+
+            /*Factory Method */
+
+            VehicleFactory vehicleFactory = new CreateVehicle();
+            IProduct product = vehicleFactory.CreateFactoryVehicle("bike");
+            product.Vehicle();
         }
+
     }
 }
